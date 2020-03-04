@@ -44,7 +44,7 @@ public class CollectionUtils {
 
     public static<E> boolean containsAny(List<? super E> c1, List<E> c2) {
         for (E e : c2) {
-            if (c1.contains(c2)) {
+            if (c1.contains(e)) {
                 return true;
             }
         }

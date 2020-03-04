@@ -18,9 +18,9 @@ public class CountMapUnitTest extends Assert {
         map.add(5);
         map.add(10);
 
-        assertEquals(map.getCount(5), 2);
-        assertEquals(map.getCount(6), 1);
-        assertEquals(map.getCount(10), 3);
+        assertEquals(2, map.getCount(5));
+        assertEquals(1, map.getCount(6));
+        assertEquals(3, map.getCount(10));
     }
 
     @Test
@@ -30,8 +30,8 @@ public class CountMapUnitTest extends Assert {
         map.add(42);
         map.add(3.14);
 
-        assertEquals(map.getCount(42), 1);
-        assertEquals(map.getCount(3.14), 1);
+        assertEquals(1, map.getCount(42));
+        assertEquals(1, map.getCount(3.14));
     }
 
     @Test
@@ -55,10 +55,10 @@ public class CountMapUnitTest extends Assert {
 
         countMap1.addAll(countMap2);
 
-        assertEquals(countMap1.getCount(-2), 4);
-        assertEquals(countMap1.getCount(0), 3);
-        assertEquals(countMap1.getCount(1), 2);
-        assertEquals(countMap1.getCount(3), 2);
+        assertEquals(4, countMap1.getCount(-2));
+        assertEquals(3, countMap1.getCount(0));
+        assertEquals(2, countMap1.getCount(1));
+        assertEquals(2, countMap1.getCount(3));
     }
 
     @Test
@@ -88,16 +88,16 @@ public class CountMapUnitTest extends Assert {
         countMap3.add(0D);
         countMap1.addAll(countMap3);
 
-        assertEquals(countMap1.getCount(0), 3);
-        assertEquals(countMap1.getCount(3.14), 2);
-        assertEquals(countMap1.getCount(-2.71), 3);
-        assertEquals(countMap1.getCount(0F), 1);
-        assertEquals(countMap1.getCount(1), 2);
-        assertEquals(countMap1.getCount(-2), 2);
-        assertEquals(countMap1.getCount(3), 1);
-        assertEquals(countMap1.getCount(1.21), 1);
-        assertEquals(countMap1.getCount(1D), 1);
-        assertEquals(countMap1.getCount(0D), 1);
+        assertEquals(3, countMap1.getCount(0));
+        assertEquals(2, countMap1.getCount(3.14));
+        assertEquals(3, countMap1.getCount(-2.71));
+        assertEquals(1, countMap1.getCount(0F));
+        assertEquals(2, countMap1.getCount(1));
+        assertEquals(2, countMap1.getCount(-2));
+        assertEquals(1, countMap1.getCount(3));
+        assertEquals(1, countMap1.getCount(1.21));
+        assertEquals(1, countMap1.getCount(1D));
+        assertEquals(1, countMap1.getCount(0D));
     }
 
     @Test
@@ -121,10 +121,10 @@ public class CountMapUnitTest extends Assert {
 
         countMap1.copyTo(countMap2);
 
-        assertEquals(countMap2.getCount(-2), 4);
-        assertEquals(countMap2.getCount(0), 3);
-        assertEquals(countMap2.getCount(1), 2);
-        assertEquals(countMap2.getCount(3), 2);
+        assertEquals(4, countMap2.getCount(-2));
+        assertEquals(3, countMap2.getCount(0));
+        assertEquals(2, countMap2.getCount(1));
+        assertEquals(2, countMap2.getCount(3));
     }
 
     @Test
@@ -154,16 +154,16 @@ public class CountMapUnitTest extends Assert {
         countMap3.add(0D);
         countMap3.copyTo(countMap1);
 
-        assertEquals(countMap1.getCount(0), 3);
-        assertEquals(countMap1.getCount(3.14), 2);
-        assertEquals(countMap1.getCount(-2.71), 3);
-        assertEquals(countMap1.getCount(0F), 1);
-        assertEquals(countMap1.getCount(1), 2);
-        assertEquals(countMap1.getCount(-2), 2);
-        assertEquals(countMap1.getCount(3), 1);
-        assertEquals(countMap1.getCount(1.21), 1);
-        assertEquals(countMap1.getCount(1D), 1);
-        assertEquals(countMap1.getCount(0D), 1);
+        assertEquals(3, countMap1.getCount(0));
+        assertEquals(2, countMap1.getCount(3.14));
+        assertEquals(3, countMap1.getCount(-2.71));
+        assertEquals(1, countMap1.getCount(0F));
+        assertEquals(2, countMap1.getCount(1));
+        assertEquals(2, countMap1.getCount(-2));
+        assertEquals(1, countMap1.getCount(3));
+        assertEquals(1, countMap1.getCount(1.21));
+        assertEquals(1, countMap1.getCount(1D));
+        assertEquals(1, countMap1.getCount(0D));
     }
 
     @Test
@@ -180,8 +180,8 @@ public class CountMapUnitTest extends Assert {
         Map<Integer, Integer> map = new HashMap<>();
         countMap.toMap(map);
 
-        assertEquals(map.get(5).intValue(), 2);
-        assertEquals(map.get(6).intValue(), 1);
-        assertEquals(map.get(10).intValue(), 3);
+        assertEquals(2, map.get(5).intValue());
+        assertEquals(1, map.get(6).intValue());
+        assertEquals(3, map.get(10).intValue());
     }
 }
