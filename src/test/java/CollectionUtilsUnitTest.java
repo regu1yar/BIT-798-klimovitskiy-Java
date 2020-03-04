@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class CollectionUtilsUnitTest extends Assert {
@@ -164,6 +165,21 @@ public class CollectionUtilsUnitTest extends Assert {
         assertEquals(8, range.size());
         for (Integer integer : range) {
             assertTrue(min <= integer && integer <= max);
+        }
+    }
+
+    @Test
+    public void rangeComparatorTest() {
+        List<Integer> list = new ArrayList<>(Arrays.asList(1, 3, 0, -3, -1, 3, 5, 2, 4, -2, -4, 2));
+
+        int min = 2;
+        int max = -4;
+        List<Integer> range = CollectionUtils.range(list, min, max, Comparator.reverseOrder());
+
+        assertEquals(8, range.size());
+        for (Integer integer : range) {
+            assertTrue(Comparator.<Integer>reverseOrder().compare(min, integer) <= 0 &&
+                    Comparator.<Integer>reverseOrder().compare(integer, max) <= 0);
         }
     }
 }
