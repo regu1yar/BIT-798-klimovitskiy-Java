@@ -1,5 +1,7 @@
-import countmap.CountMap;
-import countmap.CountMapImpl;
+package hw1;
+
+import hw1.countmap.CountMap;
+import hw1.countmap.CountMapImpl;
 import org.junit.Assert;
 import org.junit.Test;
 
