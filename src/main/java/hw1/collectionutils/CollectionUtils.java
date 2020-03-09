@@ -1,4 +1,4 @@
-package hw1.countmap.collectionutils;
+package hw1.collectionutils;
 
 import java.util.ArrayList;
 import java.util.Comparator;

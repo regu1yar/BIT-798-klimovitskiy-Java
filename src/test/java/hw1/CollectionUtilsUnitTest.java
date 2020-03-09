@@ -1,6 +1,6 @@
 package hw1;
 
-import hw1.countmap.collectionutils.CollectionUtils;
+import hw1.collectionutils.CollectionUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
