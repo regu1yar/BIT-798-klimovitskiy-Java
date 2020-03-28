@@ -3,8 +3,6 @@ package hw3.task3;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.Thread.sleep;
-
 public class ContextImpl implements Context {
     private final List<Runnable> tasks;
     private final Runnable callback;
@@ -79,13 +77,6 @@ public class ContextImpl implements Context {
     private void runTasks() {
         int i = 0;
         for (Runnable task : tasks) {
-            if (i == 2) {
-                try {
-                    sleep(2_000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
             synchronized (interrupted) {
                 if (interrupted) {
                     interruptedTasks = tasks.size() - i;
