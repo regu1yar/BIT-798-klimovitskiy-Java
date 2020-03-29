@@ -42,7 +42,6 @@ public class ScalableThreadPool implements ThreadPool {
     @Override
     public void execute(Runnable task) {
         synchronized (tasks) {
-            System.out.println(tasks.size());
             tasks.add(task);
             if (idleThreads == 0 && threads.size() < maxThreads) {
                 Thread thread = addThread();
@@ -117,7 +116,6 @@ public class ScalableThreadPool implements ThreadPool {
     }
 
     private void removeIdleThreads() {
-//        System.out.println("Trying to remove");
         while (threads.size() > minThreads) {
             boolean removed = false;
             for (ThreadWithState thread : threads) {
@@ -134,7 +132,6 @@ public class ScalableThreadPool implements ThreadPool {
     }
 
     private void removeThread(ThreadWithState thread) {
-//        System.out.println("Removing " + thread.thread);
         thread.thread.interrupt();
         threads.remove(thread);
         --idleThreads;

@@ -17,7 +17,6 @@ public class Main {
                     numberSet.add(finalI);
                 }
             });
-//            System.out.println(finalI + " executed by " + Thread.currentThread())
         }
         sleep(10_000);
         for (int i = 0; i < 100000; i++) {
