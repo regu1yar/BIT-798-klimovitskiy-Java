@@ -1,4 +1,4 @@
-package hw3.task3;
+package hw3.task3.executionmanager;
 
 public interface Context {
     int getCompletedTaskCount();
