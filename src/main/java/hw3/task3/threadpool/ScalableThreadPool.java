@@ -3,7 +3,7 @@ package hw3.task3.threadpool;
 import java.util.*;
 
 public class ScalableThreadPool implements ThreadPool {
-    private class ThreadWithState {
+    private static class ThreadWithState {
         public final Thread thread;
         public boolean isRunningTask = false;
         public final int threadNumber;
@@ -14,8 +14,8 @@ public class ScalableThreadPool implements ThreadPool {
         }
     }
 
-    private Collection<ThreadWithState> threads;
-    private Queue<Runnable> tasks;
+    private final Collection<ThreadWithState> threads;
+    private final Queue<Runnable> tasks;
     private int idleThreads = 0;
     private final int minThreads;
     private final int maxThreads;
@@ -91,7 +91,11 @@ public class ScalableThreadPool implements ThreadPool {
             }
         }
         if (task != null) {
-            task.run();
+            try {
+                task.run();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         setThreadState(threadNumber, false);
     }

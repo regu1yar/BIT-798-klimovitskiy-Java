@@ -18,10 +18,11 @@ public class Main {
                 () -> System.out.println("Running task")
         );
 
+        context.interrupt();
+
         System.out.println("Completed: " + context.getCompletedTaskCount());
         System.out.println("Failed: " + context.getFailedTaskCount());
         System.out.println("Interrupted: " + context.getInterruptedTaskCount());
-        context.interrupt();
         while (!context.isFinished()) {
             System.out.println("Is finished: " + context.isFinished());
             sleep(1_000);

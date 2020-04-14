@@ -6,7 +6,7 @@ public class FixedThreadPool implements ThreadPool {
     private final Collection<Thread> threads;
     private Queue<Runnable> tasks;
 
-    FixedThreadPool(int threadsNum) {
+    public FixedThreadPool(int threadsNum) {
         threads = new ArrayList<>();
         for (int i = 0; i < threadsNum; i++) {
             threads.add(new Thread(this::threadLoop));
@@ -44,7 +44,11 @@ public class FixedThreadPool implements ThreadPool {
             }
         }
         if (task != null) {
-            task.run();
+            try {
+                task.run();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
